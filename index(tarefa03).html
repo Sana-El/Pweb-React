@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+
+<html>
+
+   <head>
+
+      <title>ReceitaReact - 2</title>      
+
+   </head>
+<style>
+
+tr:nth-child(even) {background:#FF4500}
+tr:nth-child(odd) {background: #FFA500}
+#cabecalho{
+   background-color: white;
+}
+</style>
+   <body>
+
+      <div id="app">
+
+      
+
+      </div>
+
+
+      <script src="libs/react.js"></script>
+
+      <script src="libs/react-dom.js"></script>
+
+      <script src="libs/babel.js"></script>
+
+            
+
+      <script type="text/babel">
+
+      
+
+         class TabelaBebidas extends React.Component{
+
+
+            render(){
+
+               return (
+
+                  <div>
+
+                     <table id="tabela" border="1">
+
+                        <thead>
+
+                           <tr><th>Nome</th><th>Marca</th></tr>
+
+                        </thead>
+
+                        <tbody>
+
+                           <tr><td>Havana</td><td>Engenho Anísio Santiago</td></tr>
+
+                        </tbody>
+
+                     </table>
+
+                 </div> 
+
+               )
+
+            }
+
+
+         }
+
+               
+
+         class TabelaChurrasco extends React.Component{
+
+
+render(){
+
+   return (
+
+      <div align = "center">
+      <h1>{this.props.titulo}</h1>
+         <table id="tabela churrasco" border="2" bgcolor="white" align = "center">
+
+            <thead>
+               
+               <tr id ="cabecalho"><th>Nome</th><th>Marca</th></tr>
+
+            </thead>
+
+            <tbody>
+
+               <tr><td>espeto de carne de papelão</td><td>Friboi</td></tr>
+               <tr><td>espeto de carne de cavalo</td><td>Friboi</td></tr>
+               <tr><td>espeto de carne de quadrúpede</td><td>Friboi</td></tr>
+               <tr><td>espeto de carne de aviário</td><td>Friboi</td></tr>
+               <tr><td>espeto de carne de bípede</td><td>Friboi</td></tr>
+
+
+            </tbody>
+
+         </table>
+
+     </div> 
+
+   )
+
+}
+
+
+}
+
+            
+
+
+         
+
+
+
+         ReactDOM.render(
+
+      <TabelaChurrasco titulo= "tabela churrasco"/>,
+            document.getElementById("app"))
+
+
+      </script>
+
+   </body>
+
+</html>
