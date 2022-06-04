@@ -1,0 +1,73 @@
+
+<html>
+    <title>ReceitaReact - 3</title>
+
+    <style>
+
+      .styled-table thead tr {
+        background-color:  yellow;
+        color: black;
+        text-align: center;
+      }
+
+
+      .styled-table tbody tr:nth-of-type(even) {
+        background-color: yellow;
+        color: black;
+      }
+
+      .styled-table tbody tr:nth-of-type(even) a{
+        color: #ffffff;
+      }
+
+
+
+    </style>
+  </head>
+
+  <body>
+    <div id="app">
+
+    </div>
+
+    <script src="libs/react.js"></script>
+    <script src="libs/react-dom.js"></script>
+    <script src="libs/babel.js"></script>
+
+    <script type="text/babel">
+
+      const Titulo = ({titulo}) => {
+        return (
+          <h1 id="titulo"> {titulo} </h1> 
+        )
+      }
+    
+      const TabelaBebidas = ({cabecalho, conteudo}) => {
+        return (
+          <div id="app" align = "center">
+            <Titulo titulo="Tabela de Bebidas"/>
+            <table id="tabela" align = "center" border="1" class="styled-table">
+              <thead>
+                <tr>{cabecalho.map((c, i) => <th key={i}>{c}</th>)}</tr>
+              </thead>
+
+              <tbody>
+                {conteudo.map((obj, indexA) => <tr key={indexA}>{Object.values(obj).map((values, indexV) => <th key={`${indexA}${indexV}`}>{values}</th>)}</tr>)}
+              </tbody>
+            </table>
+  
+          </div>
+        )
+      }
+
+      const valoresCabecalhos = ["Nome", "Marca", "Sabor"]
+      const valoresConteudos = [{nome: "Havana", marca: "Engenho Anísio Santiago", teste: "Ruim"}, {nome: "Brahma", marca: "Puro Malte", teste: "Boa toda"}, {nome: "Devassa", marca: "Duplo Malte", teste: "Mais ou menos"}]
+      
+      ReactDOM.render(
+        <TabelaBebidas cabecalho={valoresCabecalhos} conteudo={valoresConteudos}/>
+        ,
+        document.getElementById('app')
+      )  
+    </script>
+  </body>
+</html>
